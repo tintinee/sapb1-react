@@ -10,34 +10,280 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+   
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    
+    <title>SAP Business One</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+     <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <!-- Main Content -->
+      <div id="content" style="background-color: white;">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      
+	    <!-- Begin Page Content -->
+        <div class="container-fluid" style="margin-left: 1px !important; padding-left: 1px !important;">
+          <!-- Page Heading -->
+         
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4"  id="windowmain" style="background-color:#E8E8E8 !important; border: none !important" >
+            <div class="row pr-0 "  width="100%">
+            <div class="col-lg-12" id="containerSystem" style="margin-right: 0px !important; padding-right: 0px !important; "  >
+                  <div class="card-header py-0" style="background-color: #A8A8A8; border-bottom-width: thick; border-color: #f0ad4e;">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                <h6 class="mt-2 font-weight-bold " style="color: black; font-size: 1rem;">Incoming Payments Upload</h5>
+                </div>
+      
+              </div>
+                  </div>
+            <div class="card-body " id="window" style="background-color: #F5F5F5; border-right: 1px solid #A0A0A0">
+		<form class="user responsive " id="form"  width="100%">
+			<div class="row pr-0 pb-2"  width="100%">
+				<div class="col-4">
+					<div class="row">
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-sm-2" >
+									<label for="txtFiletoUpload" class=" col-form-label " style="color: black;" >File to Upload</label>
+								</div>
+								<div class="col-sm-9" >
+									<div class="row">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input readonly type="text" id="txtFiletoUpload"  class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px;">
+												<input readonly type="file" id="txtFile1"  class="form-control d-none" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-sm-2" >
+									<label for="txtPostingDate" class=" col-form-label " style="color: black;" >Date</label>
+								</div>
+								<div class="col-sm-9" >
+									<div class="row d-flex align-items-center">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input type="text" id="txtPostingDate2" class="form-control col-11"  value="" min="01-01-2018" max="12-31-2050">
+												<input type="date" id="txtPostingDate" class="form-control col-1 postingdate"  value="<?php echo date('Y-m-d'); ?>" min="01-01-2018" max="12-31-2050" style="color:black !important; " >
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				<div class="col-12">
+					<div class="form-group row d-flex align-items-center py-0 my-0" >
+						<div class="col-sm-2" >
+							<label for="txtBranch" class=" col-form-label " style="color: black;" >Branch</label>
+						</div>
+						<div class="col-sm-9" >
+							<div class="row d-flex align-items-center">
+								<div class="col-10">
+									<div class="input-group mb-1">
+										<input  type="text" id="txtBPLId" class="form-control inputRadius d-none" placeholder="" readonly>
+										<input  type="text" id="txtBranchCode" class="form-control inputRadius" placeholder="" readonly>
+										<select id="selBranchName" class="fs-1 w-100 form-control-sm mdb-select md-form d-none" searchable="Search here.." style=" outline:none; border-color: #D0D0D0; font-size: 17px;">
+											<optgroup>
+												<option value="" disabled selected>Select Branch</option>
+												
+											</optgroup>
+										</select>
+									</div>
+								</div>
+								<div class="col-2 p-0">
+									<span id="txtDetected" class="d-none">(DETECTED)</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="form-group row d-flex align-items-center py-0 my-0" >
+						<div class="col-sm-2" >
+						<label for="inputEmail3" class=" col-form-label " style="color: black;" >Customer</label>
+						</div>
+						<div class="col-sm-9" >
+							<div class="row d-flex align-items-center">
+								<div class="col-10">
+									<div class="mb-1 ">
+										<input readonly type="text" id="txtCardCode" class="form-control inputRadius d-none" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px;">
+										<input  type="text" id="txtCardName" class="form-control inputRadius" placeholder="" readonly>
+										<input type="hidden" class="form-control input-sm " id="txtWtLiableArray" name="txtWtLiableArray" value="" readonly="readonly" >
+										<input type="hidden" class="form-control input-sm " id="txtWtLiableArray2" name="txtWtLiableArray2" value="" readonly="readonly" >
+										<div class="input-group-append d-none">
+										<button id="btnCardCode" class="btn btnGroup " type="button" data-mdb-ripple-color="dark"  style="background-color: #ADD8E6; "  data-toggle="modal" data-target="#bpModal" data-backdrop="false" >
+											<i class="fas fa-list-ul input-prefix" tabindex=0 style="color:blue "></i>
+										</button>
+									</div>
+								</div>
+								<div class="col-2 p-0">
+									<span id="txtDetected" class="d-none">(DETECTED)</span>
+								</div>
+							</div>
+						</div>
+					</div>
+							<div class="col-sm-9" >
+								<div class="input-group mb-1">
+									
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-12">
+					<div class="form-group row d-flex align-items-center py-0 my-0" >
+						<div class="col-sm-2" >
+						<label for="inputEmail3" class=" col-form-label " style="color: black;" >CM Remarks</label>
+						</div>
+						<div class="col-sm-9" >
+							<div class="row d-flex align-items-center">
+								<div class="col-10">
+									<div class="mb-1">
+									<textarea type="text" class="form-control " id="txtRemarks" placeholder="" resize='false' maxlength="254"></textarea>
+									</div>							
+								</div>
+							</div>
+					</div>
+							<div class="col-sm-9" >
+								<div class="input-group mb-1">
+									
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-12">
+					<div class="form-group row d-flex align-items-center py-0 my-0" >
+						<div class="col-sm-2" >
+						<label for="inputEmail3" class=" col-form-label " style="color: black;" >Payment Remarks</label>
+						</div>
+						<div class="col-sm-9" >
+							<div class="row d-flex align-items-center">
+								<div class="col-10">
+									<div class="mb-1">
+									<textarea type="text" class="form-control " id="txtRemarks" placeholder="" resize='false' maxlength="254"></textarea>
+									</div>							
+								</div>
+							</div>
+					</div>
+							<div class="col-sm-9" >
+								<div class="input-group mb-1">
+									
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-4">
+					<div class="row">
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-3" >
+									<label for="txtFileReportValidation" class="col-form-label " style="color: black;" >File Validation</label>
+								</div>
+								<div class="col-9" >
+									<div class="row">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input readonly type="text" id="txtFileReportValidation" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px; text-align: center;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-3" >
+									<label for="txtFileReportValidation" class="col-form-label " style="color: black;" >Mode of Payment</label>
+								</div>
+								<div class="col-9" >
+									<div class="row">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input readonly type="text" id="txtModeOfPayment" class="form-control text-left" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px; text-align: center;"
+												value ="Bank Transfer">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-3" >
+									<label for="txtFileReportValidation" class="col-form-label " style="color: black;" >Cash Account</label>
+								</div>
+								<div class="col-9" >
+									<div class="row">
+										<div class="col-10">
+											<div class="input-group mb-1">
+													<input  type="text" id="txtTransferGLCode" class="form-control billInputs" placeholder="" readonly>
+													<div class="input-group-append btnGroup">
+														<button class="btn" type="button" data-mdb-ripple-color="dark"  style="background-color: #ADD8E6; "  data-toggle="modal" data-target="#glModalTransfer" data-backdrop="false">
+															<i class="fas fa-list-ul input-prefix" tabindex=0 style="color:blue "></i>
+														</button>
+													</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-3" >
+									<label for="txtFileReportValidation" class="col-form-label " style="color: black;" >Reference</label>
+								</div>
+								<div class="col-9" >
+									<div class="row">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input  type="text" id="txtTransferRef" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1 " style="border-bottom-left-radius:5px; border-top-left-radius:5px;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+            <div class="col-12">
+							<div class="form-group row d-flex align-items-center py-0 my-0" >
+								<div class="col-3" >
+									<label for="txtPostingDate" class=" col-form-label " style="color: black;" >Transfer Date</label>
+								</div>
+								<div class="col-sm-9" >
+									<div class="row d-flex align-items-center">
+										<div class="col-10">
+											<div class="input-group mb-1">
+												<input type="text" id="txtPostingDate2" class="form-control col-11"  value="" min="01-01-2018" max="12-31-2050">
+												<input type="date" id="txtPostingDate" class="form-control col-1 postingdate"  value="<?php echo date('Y-m-d'); ?>" min="01-01-2018" max="12-31-2050" style="color:black !important; " >
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-3 ml-auto">
+					<div class="row form-group justify-content-center">
+						<div class="col-5">
+							<button type="button" id="btnBrowse" class="  btn btn-warning btn-rounded " style="color: black; font-weight: bold; width:100%; background: linear-gradient(to bottom, #FCF6BA, #BF953F);">Browse</button>
+							<input class="d-none" type="file" id="chooseFile" name="files[]" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+						</div>
+						<div class="col-5">
+							<button type="button" id="btnUpload3" class="  btn btn-warning btn-rounded " style="color: black; font-weight: bold; width:100%; background: linear-gradient(to bottom, #FCF6BA, #BF953F);" disabled>Upload</button>
+						</div>
+					</div>
+				</div>
+			</div>
   </body>
 </html>
